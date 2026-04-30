@@ -652,12 +652,4 @@ aliganigulu.44@gmail.com
 
 ## Lisans
 
-Yayınlamadan önce tercih ettiğiniz açık kaynak lisansını eklemeniz önerilir.
 
-Önerilen lisanslar:
-
-- MIT License
-- GPL-3.0
-- Apache-2.0
-
-QGIS eklentileri için lisans seçerken kullandığınız veri kaynaklarının lisans koşullarını da dikkate alın.
