@@ -64,14 +64,14 @@ QGIS'in kendi Python ortamı dışında ek bir Python paketi gerekmez.
 
 1. GitHub Releases bölümünden `TurkeyAutoMap.zip` dosyasını indirin.
 2. QGIS'i açın.
-3. `Eklentiler > Eklentileri Yönet ve Kur` menüsüne gidin.
-4. `ZIP'ten kur` sekmesini açın.
+3. `Plugins > Manage and Install Plugins` menüsüne gidin.
+4. `Install from ZIP` sekmesini açın.
 5. `TurkeyAutoMap.zip` dosyasını seçin.
 6. Kurulumdan sonra QGIS'i yeniden başlatın.
 
 ## Kullanım
 
-1. TurkeyAutoMap eklentisini QGIS araç çubuğundan veya eklenti menüsünden açın.
+1. TurkeyAutoMap eklentisini QGIS araç çubuğundan veya `Vector > TurkeyAutoMap` menüsünden açın.
 2. Haritasını oluşturmak istediğiniz ili seçin.
 3. Yol kapsamı, tema, ilçe vurgusu, su katmanları, altlık harita ve layout seçeneklerini belirleyin.
 4. `Haritayı Oluştur` düğmesine basın.
