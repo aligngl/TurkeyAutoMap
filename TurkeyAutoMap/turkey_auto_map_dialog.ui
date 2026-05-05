@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TurkeyAutoMapDialogBase</class>
+ <widget class="QDialog" name="TurkeyAutoMapDialogBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>760</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TurkeyAutoMap</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>5</number>
+   </property>
+   <property name="leftMargin">
+    <number>8</number>
+   </property>
+   <property name="topMargin">
+    <number>8</number>
+   </property>
+   <property name="rightMargin">
+    <number>8</number>
+   </property>
+   <property name="bottomMargin">
+    <number>8</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="titleLabel">
+     <property name="text">
+      <string>Türkiye İl Lokasyon Haritası Oluştur</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-weight: 600; font-size: 13px;</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QScrollArea" name="optionsScrollArea">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>1</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <widget class="QWidget" name="optionsScrollContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>720</width>
+        <height>500</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="optionsScrollLayout">
+       <property name="spacing">
+        <number>5</number>
+       </property>
+       <property name="leftMargin">
+        <number>4</number>
+       </property>
+       <property name="topMargin">
+        <number>4</number>
+       </property>
+       <property name="rightMargin">
+        <number>4</number>
+       </property>
+       <property name="bottomMargin">
+        <number>4</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="mapGroupBox">
+         <property name="title">
+          <string>Harita kapsamı</string>
+         </property>
+         <layout class="QGridLayout" name="mapGridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="provinceLabel">
+        <property name="text">
+         <string>İl:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="provinceComboBox"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="roadScopeLabel">
+        <property name="text">
+         <string>Yol kapsamı:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="roadScopeComboBox">
+        <item>
+         <property name="text">
+          <string>Yol ağı yok</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Tüm il yolları</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Odak ilçe yolları</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="QCheckBox" name="provinceHighlightCheckBox">
+        <property name="text">
+         <string>İl sınırını belirgin vurgula</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="2">
+       <widget class="QCheckBox" name="showNeighborsCheckBox">
+        <property name="text">
+         <string>Komşu illeri göster</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="neighborStyleLabel">
+        <property name="text">
+         <string>Komşu il görünümü:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QComboBox" name="neighborStyleComboBox">
+        <item><property name="text"><string>Sadece sınır</string></property></item>
+        <item><property name="text"><string>Dolgulu sınır</string></property></item>
+       </widget>
+      </item>
+      <item row="5" column="0" colspan="2">
+       <widget class="QCheckBox" name="neighborLabelsCheckBox">
+        <property name="text">
+         <string>Komşu il adlarını göster</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="dataLayersGroupBox">
+         <property name="title">
+          <string>Ek veri katmanları</string>
+         </property>
+         <layout class="QGridLayout" name="dataLayersGridLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="settlementDataLabel">
+            <property name="text">
+             <string>Yerleşim merkezleri</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-weight: 600;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QCheckBox" name="showPlacesCheckBox">
+            <property name="text">
+             <string>İl/ilçe merkezi sembolleri</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QCheckBox" name="placeLabelsCheckBox">
+            <property name="text">
+             <string>Merkez adları</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="hydroDataLabel">
+            <property name="text">
+             <string>Hidrografya</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-weight: 600;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QCheckBox" name="showMajorWaterwaysCheckBox">
+            <property name="text">
+             <string>Büyük akarsular</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QCheckBox" name="showMinorWaterwaysCheckBox">
+            <property name="text">
+             <string>Küçük akarsular</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QCheckBox" name="showLakesCheckBox">
+            <property name="text">
+             <string>Göller</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QCheckBox" name="showReservoirsCheckBox">
+            <property name="text">
+             <string>Baraj / rezervuarlar</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QCheckBox" name="showSeaContextCheckBox">
+            <property name="text">
+             <string>Deniz / kıyı bağlamı</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QCheckBox" name="waterLabelsCheckBox">
+            <property name="text">
+             <string>Su katmanı adları</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="styleGroupBox">
+     <property name="title">
+      <string>Stil ve renkler</string>
+     </property>
+     <layout class="QGridLayout" name="styleGridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="themeLabel">
+        <property name="text">
+         <string>Tema:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="themeComboBox">
+        <item><property name="text"><string>Profesyonel</string></property></item>
+        <item><property name="text"><string>Dark Mode</string></property></item>
+        <item><property name="text"><string>Blueprint</string></property></item>
+        <item><property name="text"><string>Retro</string></property></item>
+        <item><property name="text"><string>Minimal</string></property></item>
+        <item><property name="text"><string>Topo</string></property></item>
+        <item><property name="text"><string>Municipal</string></property></item>
+        <item><property name="text"><string>High Contrast</string></property></item>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="paletteLabel">
+        <property name="text">
+         <string>İlçe renk paleti:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="paletteComboBox">
+        <item><property name="text"><string>Canlı Ayrışan</string></property></item>
+        <item><property name="text"><string>Pastel Ayrışan</string></property></item>
+        <item><property name="text"><string>Tableau</string></property></item>
+        <item><property name="text"><string>ColorBrewer Set3</string></property></item>
+        <item><property name="text"><string>Topo Doğal</string></property></item>
+        <item><property name="text"><string>Belediye</string></property></item>
+        <item><property name="text"><string>Yüksek Kontrast</string></property></item>
+        <item><property name="text"><string>Sıcak</string></property></item>
+        <item><property name="text"><string>Soğuk</string></property></item>
+        <item><property name="text"><string>Retro Çoklu</string></property></item>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="highlightColorLabel">
+        <property name="text">
+         <string>İlçe vurgu rengi:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="highlightColorComboBox">
+        <item><property name="text"><string>Otomatik - tema için en belirgin</string></property></item>
+        <item><property name="text"><string>Magenta / Fuşya</string></property></item>
+        <item><property name="text"><string>Parlak Cyan</string></property></item>
+        <item><property name="text"><string>Lime Yeşil</string></property></item>
+        <item><property name="text"><string>Sinyal Sarı</string></property></item>
+        <item><property name="text"><string>Turuncu</string></property></item>
+        <item><property name="text"><string>Kırmızı</string></property></item>
+        <item><property name="text"><string>Mor</string></property></item>
+        <item><property name="text"><string>Siyah</string></property></item>
+        <item><property name="text"><string>Beyaz</string></property></item>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="2">
+       <widget class="QCheckBox" name="districtColorCheckBox">
+        <property name="text">
+         <string>İlçeleri farklı renklerle göster</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="focusGroupBox">
+     <property name="title">
+      <string>Odak ve ilçe vurgusu</string>
+     </property>
+     <layout class="QGridLayout" name="focusGridLayout">
+      <item row="0" column="0" colspan="2">
+       <widget class="QCheckBox" name="districtFocusCheckBox">
+        <property name="text">
+         <string>İlçe odak modu (haritayı ilçeye yakınlaştır)</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="districtFocusLabel">
+        <property name="text">
+         <string>Odak ilçe:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="districtFocusLineEdit">
+        <property name="placeholderText">
+         <string>Örn. Osmangazi</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="QCheckBox" name="highlightDistrictCheckBox">
+        <property name="text">
+         <string>Sadece belirli ilçeyi vurgula (zoom yapmaz)</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="highlightDistrictLabel">
+        <property name="text">
+         <string>Vurgulanacak ilçe:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="highlightDistrictLineEdit">
+        <property name="placeholderText">
+         <string>Örn. Seyhan</string>
+        </property>
+       </widget>
+      </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="layoutGroupBox">
+     <property name="title">
+      <string>Layout ve açıklamalar</string>
+     </property>
+     <layout class="QGridLayout" name="layoutGridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="paperSizeLabel">
+        <property name="text">
+         <string>Sayfa:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="paperSizeComboBox">
+        <item><property name="text"><string>A4</string></property></item>
+        <item><property name="text"><string>A3</string></property></item>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="orientationLabel">
+        <property name="text">
+         <string>Yön:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QComboBox" name="orientationComboBox">
+        <item><property name="text"><string>Yatay</string></property></item>
+        <item><property name="text"><string>Dikey</string></property></item>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QCheckBox" name="dynamicLegendCheckBox">
+        <property name="text">
+         <string>Dinamik QGIS lejantı kullan</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2" colspan="2">
+       <widget class="QCheckBox" name="insetMapCheckBox">
+        <property name="text">
+         <string>Layout içinde konum haritası ekle</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="locatorModeLabel">
+        <property name="text">
+         <string>Konum haritası:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" colspan="3">
+       <widget class="QComboBox" name="locatorModeComboBox">
+        <item><property name="text"><string>Otomatik</string></property></item>
+        <item><property name="text"><string>İli Türkiye içinde göster</string></property></item>
+        <item><property name="text"><string>İlçeyi il içinde göster</string></property></item>
+        <item><property name="text"><string>Konum haritası yok</string></property></item>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="basemapLabel">
+        <property name="text">
+         <string>Altlık harita:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1" colspan="3">
+       <widget class="QComboBox" name="basemapComboBox">
+        <item><property name="text"><string>Altlık yok</string></property></item>
+        <item><property name="text"><string>Google Satellite</string></property></item>
+        <item><property name="text"><string>Google Hybrid</string></property></item>
+        <item><property name="text"><string>Google Roadmap</string></property></item>
+        <item><property name="text"><string>Google Terrain</string></property></item>
+        <item><property name="text"><string>Esri World Imagery</string></property></item>
+        <item><property name="text"><string>Esri World Street Map</string></property></item>
+        <item><property name="text"><string>Esri World Topographic</string></property></item>
+        <item><property name="text"><string>Esri World Terrain</string></property></item>
+        <item><property name="text"><string>Esri Light Gray</string></property></item>
+        <item><property name="text"><string>Esri Dark Gray</string></property></item>
+        <item><property name="text"><string>OpenStreetMap Standard</string></property></item>
+        <item><property name="text"><string>OpenStreetMap HOT</string></property></item>
+        <item><property name="text"><string>OpenTopoMap</string></property></item>
+        <item><property name="text"><string>CyclOSM</string></property></item>
+        <item><property name="text"><string>CartoDB Positron</string></property></item>
+        <item><property name="text"><string>CartoDB Dark Matter</string></property></item>
+        <item><property name="text"><string>CartoDB Voyager</string></property></item>
+        <item><property name="text"><string>CartoDB Voyager No Labels</string></property></item>
+       </widget>
+      </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextBrowser" name="helpTextBrowser">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>52</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>64</height>
+      </size>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML&gt;&lt;html&gt;&lt;body&gt;
+&lt;b&gt;Seçenek açıklamaları&lt;/b&gt;&lt;br/&gt;
+&lt;b&gt;Tema:&lt;/b&gt; Yol, sınır, etiket, arka plan ve layout renklerini birlikte değiştirir. Municipal artık il sınırı koyu lacivert, ana yollar kırmızı/turuncu, ilçe vurgusu fuşya olacak şekilde ayrıştırılmıştır.&lt;br/&gt;
+&lt;b&gt;İlçe vurgu rengi:&lt;/b&gt; Sadece belirli ilçeyi vurgula veya ilçe odak modu aktifken seçilen ilçenin dolgu/çerçeve rengini belirler. Otomatik seçim temaya göre en ayrışan rengi kullanır.&lt;br/&gt;
+&lt;b&gt;Odak modu:&lt;/b&gt; Haritayı yazılan ilçeye yakınlaştırır. &lt;b&gt;Sadece belirli ilçeyi vurgula&lt;/b&gt; ise ili aynı ölçekte bırakır, yalnızca yazılan ilçeyi gösterir.&lt;br/&gt;
+&lt;b&gt;Yol kapsamı:&lt;/b&gt; Tüm il yolları veya yalnızca odak ilçe içinde kalan yollar üretilebilir. İlçe yolları için odak ilçe adı gerekir.&lt;br/&gt;
+&lt;b&gt;Komşu iller:&lt;/b&gt; Dolgusuz yalnız sınır veya temaya uygun yarı saydam dolgu ile gösterilebilir.&lt;br/&gt;
+&lt;b&gt;Ek veri katmanları:&lt;/b&gt; Yerleşim merkezleri ve hidrografya ayrı başlık altındadır; varsayılan kapalı gelir, ihtiyaç oldukça açılır.&lt;br/&gt;
+&lt;b&gt;Altlık harita:&lt;/b&gt; Google, Esri, OSM, OpenTopoMap, CyclOSM ve CartoDB XYZ servislerinden seçim yapılabilir.&lt;br/&gt;
+&lt;b&gt;Layout:&lt;/b&gt; Dinamik lejant kapalıysa temiz ve düzenlenebilir sabit liste kullanılır; açılırsa sonradan eklenen QGIS katmanları lejanta dahil olabilir.
+&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="poweredByLabel">
+     <property name="text">
+      <string>Powered By AGLSOFT - Ali Ganigülü™</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #607d8b; font-size: 10px; font-weight: 600;</string>
+     </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="statusLabel">
+     <property name="text">
+      <string>Hazır.</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QProgressBar" name="progressBar">
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="buttonLayout">
+     <item>
+      <widget class="QPushButton" name="createButton">
+       <property name="text">
+        <string>Haritayı Oluştur</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="clearCacheButton">
+       <property name="text">
+        <string>Önbelleği Temizle</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="saveButton">
+       <property name="text">
+        <string>Kaydet</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

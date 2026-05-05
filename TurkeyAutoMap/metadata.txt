@@ -1,0 +1,17 @@
+[general]
+name=TurkeyAutoMap
+qgisMinimumVersion=3.16
+description=Seçilen Türkiye ili için GADM sınır ve OSM yol haritasını otomatik oluşturur
+version=2.4.0
+author=Ali Ganigülü
+email=aliganigulu.44@gmail.com
+about=Bu eklenti GADM il sınırlarını ve Geofabrik OSM yol verilerini kullanarak
+      seçilen il için otomatik harita oluşturur. İnternet bağlantısı gerektirir.
+tracker=
+repository=
+tags=turkey,harita,gadm,osm,yol,il
+homepage=
+category=Vector
+icon=icon.png
+experimental=False
+deprecated=False
